@@ -105,6 +105,7 @@ TT_SingleList<T>::~TT_SingleList()
 		ClearList();
 	length_ = 0;
 
+	cout << "destroy list" << endl;
 
 }
 
@@ -158,6 +159,7 @@ void TT_SingleList<T>::Insert(T data, int index)
 
 	if (index >= length_ && index <= 0)  //인덱스 범위를 벗어나면 일단 마지막에 넣어줭.
 	{
+		cout << "wrong index... insert last node" << endl;
 		Insert(newNode);
 	}
 	else  //범위 내면
@@ -216,17 +218,20 @@ bool TT_SingleList<T>::Delete(T data)   //데이터 찾아서 삭제.
 		if (Temp->data_ == data)  //일치하는 데이터 있으면
 		{
 			deleteTemp = Temp;  //삭제할거에 대입
-		}
-		else
-		{
-			return false;   //없으면 삭제 시도 거부.
+			//찾았다는 로그
+			cout << "find delete data..." << endl;
+			break;
 		}
 	}
-
-	prevTemp->next_ = deleteTemp->next_;
-	delete deleteTemp;
-	length_--;
-
+	if (deleteTemp != nullptr)  //있으면 지우고
+	{
+		prevTemp->next_ = deleteTemp->next_;
+		delete deleteTemp;
+		length_--;
+	}
+	else {  //없으면 넘어가
+		return false;
+	}
 	return true;
 }
 
@@ -242,7 +247,6 @@ SingleNode<T> & TT_SingleList<T>::SearchIndex(int index)
 	}
 
 	return *temp;
-	// TODO: 여기에 반환 구문을 삽입합니다.
 }
 
 template<typename T>
@@ -275,8 +279,6 @@ void TT_SingleList<T>::PrintAll()
 		temp = temp->next_;//다음노드다음노드로
 		cout << "index : " << i + 1 << "   data : " << temp->data_ << endl;//출력.
 		i++;
-		if (temp->next_ == nullptr)
-			break;
 	}
 }
 

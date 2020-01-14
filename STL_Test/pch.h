@@ -13,6 +13,7 @@
 #include <iostream>
 
 #include "./TaengTaro_STL/TT_SList.h"
+#include "./TaengTaro_STL/TT_DList.h"
 
 #pragma comment(lib,"TaengTaro_STL.lib")
 

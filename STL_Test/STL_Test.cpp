@@ -15,9 +15,9 @@ int main()
 
 	//printAll("string", 10);
 
-	TT_SingleList<int> listtest;
+	TT_SingleList<int> *listtest = new TT_SingleList<int>();
 
-	cout << "list length : " << listtest.ListLength() << endl;
+	cout << "list length : " << listtest->ListLength() << endl;
 
 
 	SingleNode<int> *Node = new SingleNode<int>();
@@ -28,24 +28,67 @@ int main()
 	Node3->data_ = 30;
 	SingleNode<int> *Node4 = new SingleNode<int>();
 	Node4->data_ = 40;
-	listtest.Insert(Node);
-	cout << "list length : " << listtest.ListLength() << endl;
-	listtest.Insert(Node2);
-	cout << "list length : " << listtest.ListLength() << endl;
-	listtest.Insert(Node3);
-	cout << "list length : " << listtest.ListLength() << endl;
-	listtest.Insert(Node4);
-	cout << "list length : " << listtest.ListLength() << endl;
+	listtest->Insert(Node);
+	cout << "list length : " << listtest->ListLength() << endl;
+	listtest->Insert(Node2);
+	cout << "list length : " << listtest->ListLength() << endl;
+	listtest->Insert(Node3);
+	cout << "list length : " << listtest->ListLength() << endl;
+	listtest->Insert(Node4);
+	cout << "list length : " << listtest->ListLength() << endl;
 
-	listtest.PrintAll();
+	listtest->PrintAll();
 
-	listtest.DeleteIndex(3);
+	listtest->DeleteIndex(3);
 
-	listtest.PrintAll();
+	listtest->PrintAll();
+
+	listtest->Delete(10);
+
+	listtest->PrintAll();
 	//node를 삭제할때 문제가 발생 했는데.
 	//node 삽입시 일반 객체일때는 에러발생
 	//            포인터 일때는 에러가 사라졌다.
+	cout << "list length : " << listtest->ListLength() << endl;
 
+	delete listtest;
+
+	TT_DoubleList<int> *dlisttest = new TT_DoubleList<int>();
+
+	cout << "dlist length : " << dlisttest->ListLength() << endl;
+
+
+	DoubleNode<int> *dNode = new DoubleNode<int>();
+	dNode->data_ = 10;
+	DoubleNode<int> *dNode2 = new DoubleNode<int>();
+	dNode2->data_ = 20;
+	DoubleNode<int> *dNode3 = new DoubleNode<int>();
+	dNode3->data_ = 30;
+	DoubleNode<int> *dNode4 = new DoubleNode<int>();
+	dNode4->data_ = 40;
+	dlisttest->Insert(dNode);
+	cout << "dlist length : " << dlisttest->ListLength() << endl;
+	dlisttest->Insert(dNode2);
+	cout << "dlist length : " << dlisttest->ListLength() << endl;
+	dlisttest->Insert(dNode3);
+	cout << "dlist length : " << dlisttest->ListLength() << endl;
+	dlisttest->Insert(dNode4);
+	cout << "dlist length : " << dlisttest->ListLength() << endl;
+
+	dlisttest->PrintAll();
+
+	dlisttest->DeleteIndex(3);
+
+	dlisttest->PrintAll();
+
+	dlisttest->Delete(10);
+	
+	dlisttest->PrintAll();
+	cout << "dlist length : " << dlisttest->ListLength() << endl;
+	
+	delete dlisttest;
+
+	return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
