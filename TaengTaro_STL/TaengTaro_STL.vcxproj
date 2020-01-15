@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TT_CList.h" />
     <ClInclude Include="TT_DList.h" />
     <ClInclude Include="TT_SList.h" />
   </ItemGroup>
