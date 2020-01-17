@@ -14,6 +14,7 @@
 
 #include "./TaengTaro_STL/TT_SList.h"
 #include "./TaengTaro_STL/TT_DList.h"
+#include "./TaengTaro_STL/TT_CList.h"
 
 #pragma comment(lib,"TaengTaro_STL.lib")
 

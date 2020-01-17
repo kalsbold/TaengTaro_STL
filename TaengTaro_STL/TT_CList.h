@@ -163,7 +163,7 @@ bool TT_CircularList<T>::Delete(int index)
 	SingleNode<T> * Temp = nullptr;
 	SingleNode<T> * current = this->head_;
 
-	for (int i = 1; i < index; i++)
+	for (int i = 0; i < index; i++)
 	{
 		if (current->next_ == nullptr)
 		{
@@ -190,7 +190,7 @@ SingleNode<T>& TT_CircularList<T>::SearchIndex(int index)
 	for (int i = 0; i < index; i++) //인덱스 위치까지 옮겨가서
 	{
 		temp = temp->next_;
-		cout << "index : " << i << endl;
+		cout << "index : " << i+1 << endl;
 	}
 
 	return *temp;
@@ -205,7 +205,7 @@ SingleNode<T>& TT_CircularList<T>::Search(T data)
 	for (int i = 0; i < length_; i++) //인덱스 위치까지 옮겨가서
 	{
 		temp = temp->next_;
-		cout << "index : " << i << endl;
+		cout << "index : " << i+1 << endl;
 		if (temp->data_ == data)
 		{
 			return *temp;
@@ -219,11 +219,11 @@ template<typename T>
 void TT_CircularList<T>::PrintAll()
 {
 	SingleNode<T> * temp = this->head_;
-	int i = 1;
+	int i = 0;
 	while (i < length_) //노드가 존재하지 않을때 까지
 	{
 		temp = temp->next_;//다음노드다음노드로
-		cout << "index : " << i << "   data : " << temp->data_ << endl;//출력.
+		cout << "index : " << i+1 << "   data : " << temp->data_ << endl;//출력.
 		i++;
 	}
 }

@@ -88,6 +88,40 @@ int main()
 	
 	delete dlisttest;
 
+
+	TT_CircularList<int> *clisttest = new TT_CircularList<int>();
+
+	cout << "clist length : " << clisttest->ListLength() << endl;
+
+	SingleNode<int> *Node5 = new SingleNode<int>();
+	Node5->data_ = 10;
+	SingleNode<int> *Node6 = new SingleNode<int>();
+	Node6->data_ = 20;
+	SingleNode<int> *Node7 = new SingleNode<int>();
+	Node7->data_ = 30;
+	SingleNode<int> *Node8 = new SingleNode<int>();
+	Node8->data_ = 40;
+	clisttest->Insert(Node5);
+	cout << "list length : " << clisttest->ListLength() << endl;
+	clisttest->Insert(Node6);
+	cout << "list length : " << clisttest->ListLength() << endl;
+	clisttest->Insert(Node7);
+	cout << "list length : " << clisttest->ListLength() << endl;
+	clisttest->Insert(Node8);
+	cout << "list length : " << clisttest->ListLength() << endl;
+
+	clisttest->PrintAll();
+
+	cout << "delete node" << endl;
+	clisttest->Delete(3);
+
+	clisttest->PrintAll();
+
+	cout << "delete node" << endl;
+	clisttest->Delete(1);
+
+	clisttest->PrintAll();
+
 	return 0;
 }
 
