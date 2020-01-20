@@ -150,8 +150,15 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TT_CList.h" />
+    <ClInclude Include="TT_CQueue.h" />
+    <ClInclude Include="TT_Deque.h" />
     <ClInclude Include="TT_DList.h" />
+    <ClInclude Include="TT_Graph.h" />
+    <ClInclude Include="TT_Heap.h" />
+    <ClInclude Include="TT_Queue.h" />
     <ClInclude Include="TT_SList.h" />
+    <ClInclude Include="TT_Stack.h" />
+    <ClInclude Include="TT_Tree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

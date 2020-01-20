@@ -30,6 +30,27 @@
     <ClInclude Include="TT_CList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="TT_Stack.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TT_Heap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TT_Queue.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TT_CQueue.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TT_Deque.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TT_Tree.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TT_Graph.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
