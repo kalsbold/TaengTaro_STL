@@ -55,8 +55,8 @@ public:
 	bool Delete(T data);
 
 	//검색
-	DoubleNode<T> & SearchIndex(int index);
-	DoubleNode<T> & Search(T data);
+	DoubleNode<T> * SearchIndex(int index);
+	DoubleNode<T> * Search(T data);
 
 	//all print
 	void PrintAll();
@@ -69,6 +69,9 @@ public:
 
 	//리스트 길이.
 	int ListLength();
+
+	//노드간 데이터 교환
+	void SwapNodeData(int index1, int index2);
 };
 
 template<typename T>
@@ -289,7 +292,7 @@ bool TT_DoubleList<T>::Delete(T data)
 	{
 		//테일에서 접근.
 		temp = temp->next_;
-		cout << "index : " << i << endl;
+		cout << "index : " << i+1 << endl;
 		if (temp->data_ == data)
 		{
 			deletetemp = temp;
@@ -314,40 +317,40 @@ bool TT_DoubleList<T>::Delete(T data)
 }
 
 template<typename T>
-DoubleNode<T>& TT_DoubleList<T>::SearchIndex(int index)
+DoubleNode<T>* TT_DoubleList<T>::SearchIndex(int index)
 {
 	//인덱스까지 탐색.
 	if (index > (length_ / 2))  //리스트 길이 절반보다 큰번호
 	{
 		DoubleNode<T> *temp = tail_;
 
-		for (int i = length_; i > index; --i)
+		for (int i = length_; i >= index; --i)
 		{
 			//테일에서 접근.
 			temp = temp->prev_;
-			cout << "index : " << i << endl;
+			//cout << "index : " << i+1 << endl;
 		}
 
-		return *temp;
+		return temp;
 	}
 	else //작거나 같은번호
 	{
 		//헤드에서 접근
 		DoubleNode<T> *temp = head_;
 
-		for (int i = 0; i < index; i++)
+		for (int i = 0; i <= index; i++)
 		{
 			//테일에서 접근.
 			temp = temp->next_;
-			cout << "index : " << i << endl;
+			//cout << "index : " << i + 1 << "  data :" << temp->data_ << endl;
 		}
 
-		return *temp;
+		return temp;
 	}
 }
 
 template<typename T>
-DoubleNode<T>& TT_DoubleList<T>::Search(T data)
+DoubleNode<T>* TT_DoubleList<T>::Search(T data)
 {
 	//전체 순환하며 데이터 검색.
 	DoubleNode<T> * temp = head_;
@@ -358,7 +361,7 @@ DoubleNode<T>& TT_DoubleList<T>::Search(T data)
 		cout << "index : " << i << endl;
 		if (temp->data_ == data)
 		{
-			return *temp;
+			return temp;
 		}
 	}
 
@@ -373,9 +376,10 @@ void TT_DoubleList<T>::PrintAll()
 	while (temp->next_ != tail_) //노드가 존재하지 않을때 까지
 	{
 		temp = temp->next_;//다음노드다음노드로
-		cout << "index : " << i + 1 << "   data : " << temp->data_ << endl;//출력.
+		cout << "index : " << i + 1 << "   data : " << temp->data_ << "  ";//출력.
 		i++;
 	}
+	cout << endl;
 }
 
 template<typename T>
@@ -400,4 +404,21 @@ template<typename T>
 int TT_DoubleList<T>::ListLength()
 {
 	return length_;
+}
+
+template<typename T>
+void TT_DoubleList<T>::SwapNodeData(int index1, int index2)
+{
+	DoubleNode<T>* swap1 = this->SearchIndex(index1);
+	DoubleNode<T>* swap2 = this->SearchIndex(index2);
+
+	T temp;
+
+	//cout << "swap 1 : " << swap1->data_ << "  swap2 : " << swap2->data_ << endl;
+
+	temp = swap1->data_;
+	swap1->data_ = swap2->data_;
+	swap2->data_ = temp;
+
+	//cout << "after swap ::: swap 1 : " << swap1->data_ << "  swap2 : " << swap2->data_ << endl;
 }

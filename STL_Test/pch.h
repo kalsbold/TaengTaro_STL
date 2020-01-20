@@ -21,4 +21,11 @@
 
 using namespace std;
 
+
+enum SORTMODE 
+{
+	ASCENDING, //오름차순
+	DESCENDING, //내림차순
+};
+
 #endif //PCH_H
